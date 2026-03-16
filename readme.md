@@ -16,3 +16,4 @@ A proposta é criar uma página clara, organizada e responsiva, destacando meus 
 
 - **HTML5** — estrutura da página  
 - **CSS3** — estilização e responsividade  
+- **JS** - programação
