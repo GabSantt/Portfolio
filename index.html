@@ -13,8 +13,13 @@
 <body>
     <header>
         <img src="images/foto_pessoal.jpeg" class="foto" alt="Imagem Pessoal">
-        <h1>Gabriela Fátima Santos</h1>
-        <p>FullStack Developer • São José dos Campos - SP</p>
+        <h1 id="perfil-nome">Gabriela Fátima Santos
+        <button class="admin-only" onclick="editarNome()">✏️</button>
+        </h1>
+        <p id="perfil-titulo">FullStack Developer • São José dos Campos - SP
+        <button class="admin-only" onclick="editarTitulo()">✏️</button>
+        </p>
+        <h3 id="mensagem"></h3>
         <nav>
             <a href="#curriculo">Currículo</a>
             <a href="#projetos">Projetos</a>
@@ -25,28 +30,48 @@
         </nav>
     </header>
     <!-- INTRODUÇÃO -->
+
     <section id="introducao">
         <h2>Introdução</h2>
         <div class="card">
-            <p>Olá! Sou <strong>Gabriela Fátima Santos</strong>, estudante apaixonada por tecnologia e desenvolvimento web. 
+            <p>
+            <span id="perfil-descricao"> 
+            Olá! Sou <strong>Gabriela Fátima Santos</strong>, estudante apaixonada por tecnologia e desenvolvimento web. 
             Este portfólio foi criado para apresentar minha trajetória, projetos acadêmicos e habilidades adquiridas. 
             Meu objetivo é crescer profissionalmente como <strong>desenvolvedora fullstack</strong>, aplicando criatividade e 
-            técnica para resolver problemas e entregar experiências digitais eficientes e agradáveis.</p>
+            técnica para resolver problemas e entregar experiências digitais eficientes e agradáveis.
+            </span>
+        <button class="admin-only" onclick="editarDescricao()">✏️</button> 
+        </p>
         </div>
     </section>
 
     <!-- CURRÍCULO -->
     <section id="curriculo">
-        <h2>Currículo</h2>
+        <h2>Currículo
+            <button class="admin-only" onclick="adicionarCurriculo()">➕</button>
+        </h2>
         <div class="card">
             <p class='text-center'><strong>Formação:</strong></p>
-            <ul>
-                <li> Desenvolvimento de Software Multiplataforma (2025-2028)</li>
-                <li>Ensino Médio — Colégios Univap (2018–2020)</li>
-                <li>Confeitaria Profissional e Avançada — Instituto Gastronômico das Américas (2022–2023)</li>
+            <ul id="lista-curriculo">
+                <li>
+                    <span>Desenvolvimento de Software Multiplataforma (2025-2028)</span>
+                    <button class="admin-only" onclick="editarHabilidade(this)">✏️</button>
+                    <button class="admin-only" onclick="deletarItem(this,'li')">🗑</button>
+                </li>
+                <li>
+                    <span>Ensino Médio — Colégios Univap (2018–2020)</span>
+                    <button class="admin-only" onclick="editarHabilidade(this)">✏️</button>
+                    <button class="admin-only" onclick="deletarItem(this,'li')">🗑</button>
+                </li>
+                <li>
+                    <span>Confeitaria Profissional e Avançada — Instituto Gastronômico das Américas (2022–2023)</span>
+                    <button class="admin-only" onclick="editarHabilidade(this)">✏️</button>
+                    <button class="admin-only" onclick="deletarItem(this,'li')">🗑</button>
+                </li>
             </ul>
             <a href="images/Gabriela- Curriculo.pdf (3).pdf" class="btn btn-secondary mt-2" download="Gabriela_Curriculo.pdf">
-                    Baixar Curriculo
+                Baixar Curriculo
             </a>
         </div>
     </section>
@@ -70,6 +95,10 @@
                                 class="btn btn-secondary mt-2 menu-link text-white"> Github
                                 <img src="images/github.png" alt="Link para o GitHub do projeto">
                             </a>
+                            <a href="https://api-censo-2022.vercel.app" target="_blank" 
+                                class="btn btn-secondary mt-2 menu-link text-white"> Acesse o Site!
+                            </a>
+                            
                         </div>
                     </li>
                     
@@ -86,6 +115,9 @@
                                 class="btn btn-secondary mt-2 menu-link text-white"> Github
                                 <img src="images/github.png" alt="Link para o GitHub do projeto">
                             </a>
+                            <a href="https://desafio-2-site.vercel.app" target="_blank" 
+                                class="btn btn-secondary mt-2 menu-link text-white"> Acesse o Site!
+                            </a>
                         </div>
                     </li>
 
@@ -101,7 +133,10 @@
                             <a href="https://github.com/GabSantt/Desafio-de-Site" target="_blank" 
                                     class="btn btn-secondary mt-2 menu-link text-white"> Github
                                     <img src="images/github.png" alt="Link para o GitHub do projeto">
-                                </a>
+                            </a>
+                            <a href="https://desafio-de-site.vercel.app" target="_blank" 
+                                class="btn btn-secondary mt-2 menu-link text-white"> Acesse o Site!
+                            </a>
                         </div>
                     </li>
 
@@ -220,108 +255,168 @@
     <section id="habilidades">
         <h2>Habilidades</h2>
         <div class="card">
-            <p class="text-center"><strong>Soft Skills:</strong></p>
-            <ul>
-                <li>Comunicação e trabalho em equipe</li>
-                <li>Adaptabilidade e proatividade</li>
-                <li>Organização e aprendizado contínuo</li>
-            </ul>
-            <p class="text-center"><strong>Hard Skills:</strong></p>
-            <ul>
-                <li>HTML5, CSS3, JavaScript</li>
-                <li>Versionamento com Git/GitHub</li>
-                <li>Pacote Office</li>
-                <li>Inglês Intermediário</li>
-            </ul>
+            <p class="text-center">
+            <strong>Soft Skills:</strong>
+            <button class="admin-only" onclick="adicionarHabilidade('lista-soft-skills')">➕</button>
+            </p>
+                <ul id="lista-soft-skills">
+                    <li>
+                        <span>Comunicação e trabalho em equipe</span>
+                        <button class="admin-only" onclick="editarHabilidade(this)">✏️</button>
+                        <button class="admin-only" onclick="deletarItem(this,'li')">🗑</button>
+                    </li>
+                    <li>
+                        <span>Adaptabilidade e proatividade</span>
+                        <button class="admin-only" onclick="editarHabilidade(this)">✏️</button>
+                        <button class="admin-only" onclick="deletarItem(this,'li')">🗑</button>
+                    </li>
+                    <li>
+                        <span>Organização e aprendizado contínuo</span>
+                        <button class="admin-only" onclick="editarHabilidade(this)">✏️</button>
+                        <button class="admin-only" onclick="deletarItem(this,'li')">🗑</button>
+                    </li>
+                </ul>
+            <p class="text-center mt-4">
+            <strong>Hard Skills:</strong>
+            <button class="admin-only" onclick="adicionarHabilidade('lista-hard-skills')">➕</button>
+            </p>
+
+                <ul id="lista-hard-skills">
+                    <li>
+                        <span>HTML5, CSS3, JavaScript</span>
+                        <button class="admin-only" onclick="editarHabilidade(this)">✏️</button>
+                        <button class="admin-only" onclick="deletarItem(this,'li')">🗑</button>
+                    </li>
+                    <li>
+                        <span>Versionamento com Git/GitHub</span>
+                        <button class="admin-only" onclick="editarHabilidade(this)">✏️</button>
+                        <button class="admin-only" onclick="deletarItem(this,'li')">🗑</button>
+                    </li>
+
+                    <li>
+                        <span>Pacote Office</span>
+                        <button class="admin-only" onclick="editarHabilidade(this)">✏️</button>
+                        <button class="admin-only" onclick="deletarItem(this,'li')">🗑</button>
+                    </li>
+
+                    <li>
+                        <span>Inglês Intermediário</span>
+                        <button class="admin-only" onclick="editarHabilidade(this)">✏️</button>
+                        <button class="admin-only" onclick="deletarItem(this,'li')">🗑</button>
+                    </li>
+                </ul>
         </div>
     </section>
 
     <!-- DOCUMENTOS -->
     <section id="documentos">
         <h2>Documentos e Trabalhos</h2>
-        <div class="card">
-            <p>Aqui serão adicionados relatórios, trabalhos acadêmicos e produções relevantes conforme os projetos forem evoluindo.</p>
+            <div class="card">
+            <p>
+                <span id="documentos-texto">
+                Aqui serão adicionados relatórios, trabalhos acadêmicos e produções relevantes conforme os projetos forem evoluindo.
+                </span>
+                <button class="admin-only" onclick="editarDocumentos()">✏️</button>
+                <button class="admin-only" onclick="deletarItem(this,'li')">🗑</button>
+            </p>
         </div>
     </section>
 
     <!-- CERTIFICAÇÕES -->
     <section id="certificacoes">
-        <h2>Certificações</h2>
+        <h2> Certificações
+            <button class="admin-only" onclick="adicionarCertificacao()">➕</button>
+        </h2>
         <div class="card text-center">
-            <p><strong>Confeitaria Profissional e Avançada</strong> — IGA (2023)
-                <a href="images/certificado_iga.pdf" target="_blank">
-                    <img src="images/raccoon.png" alt="Certificado_um"
-                    style="border-radius: 10px; transition: 0.3s; max-width: 30px; vertical-align: middle;">
-                    Confira aqui!
-                </a>
-            </p>
-            <p> <strong>Escola de Inovadores</strong> — Inova CPS
-                <a href="images/CERTIFICADO_-_2025-2.pdf" target="_blank">
-                    <img src="images/raccoon.png" alt="Certificado_dois" 
-                    style="border-radius: 10px; transition: 0.3s; max-width: 30px; vertical-align: middle;">
-                    Confira aqui!
-                </a>
-            </p>
-            <p> <strong>Introdução ao SCRUM </strong> — FGV
-                <a href="images/introducao_scrum.pdf" target="_blank">
-                    <img src="images/raccoon.png" alt="Certificado_dois" 
-                    style="border-radius: 10px; transition: 0.3s; max-width: 30px; vertical-align: middle;">
-                    Confira aqui!
-                </a>
-            </p>
+            <div id="lista-certificacoes">
+                <p class="item-certificacao">
+                    <span>
+                        <strong> Confeitaria Profissional e Avançada</strong> — IGA (2023)
+                    </span>
+                        <a href="images/certificado_iga.pdf" target="_blank">
+                        <img src="images/raccoon.png" class="icone-certificado">
+                        Confira aqui!
+                        </a>
+                    <button class="admin-only" onclick="editarCertificacao(this)">✏️</button>
+                    <button class="admin-only" onclick="deletarItem(this,'.item-certificacao')">🗑</button>
+                </p>
+
+                <p class="item-certificacao">
+                    <span>
+                        <strong> Escola de Inovadores</strong> — Inova CPS
+                    </span>
+                        <a href="images/CERTIFICADO_-_2025-2.pdf" target="_blank">
+                        <img src="images/raccoon.png" class="icone-certificado">
+                        Confira aqui!
+                        </a>
+                    <button class="admin-only" onclick="editarCertificacao(this)">✏️</button>
+                    <button class="admin-only" onclick="deletarItem(this,'.item-certificacao')">🗑</button>
+                </p>
+
+                <p class="item-certificacao">
+                    <span>
+                        <strong>Introdução ao SCRUM</strong> — FGV
+                    </span>
+                        <a href="images/introducao_scrum.pdf" target="_blank">
+                        <img src="images/raccoon.png" class="icone-certificado">
+                        Confira aqui!
+                        </a>
+                    <button class="admin-only" onclick="editarCertificacao(this)">✏️</button>
+                    <button class="admin-only" onclick="deletarItem(this,'.item-certificacao')">🗑</button>
+                </p>
+            </div>
         </div>
     </section>
 
     <!-- CONTATO -->
     <section id="contato">
-        <h2>Contato</h2>
+        <h2> Contato
+            <button class="admin-only" onclick="editarContatos()">✏️</button>
+        </h2>
         <div class="card text-center">
-            <a href="mailto:gabriela.fat.san@gmail.com" target="_blank" 
-                class="btn btn-warning mt-2 menu-link flex items-center gap-1 px-2 py-1 text-sm"> Email
-                <img src="images/icone2_mensa.png" alt="Link para E-mail">
+            <a href="mailto:gabriela.fat.san@gmail.com" target="_blank"
+            class="btn btn-warning mt-2 menu-link"> Email
+                <img src="images/icone2_mensa.png">
             </a>
-            <a href="tel:+5512996497481" target="_blank" 
-                class="btn btn-success mt-2 menu-link flex items-center gap-1 px-2 py-1 text-sm"> Telefone
-                <img src="images/icone2_tel.png" alt="telefone">
+
+            <a href="tel:+5512996497481" target="_blank"
+            class="btn btn-success mt-2 menu-link"> Telefone
+                <img src="images/icone2_tel.png">
             </a>
-            <a href="https://www.google.com/maps/place/São+José+dos+Campos,+SP/@-23.1853506,-45.7834496,15z/data=!4m6!3m5!1s0x94cc4bb3858cc2e7:0xba25a33168f8c1!8m2!3d-23.2198396!4d-45.8915658!16zL20vMDNiY3F6?entry=ttu&g_ep=EgoyMDI1MTExMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" 
-                class="btn btn-danger mt-2 menu-link flex items-center gap-1 px-2 py-1 text-sm"> Localização
-                <img src="images/icone2_mapa.png" alt="Localizacao">
+
+            <a href="https://www.google.com/maps/place/São+José+dos+Campos" target="_blank" class="btn btn-danger mt-2 menu-link">
+            Localização
+                <img src="images/icone2_mapa.png">
             </a>
-            <a href="https://www.linkedin.com/in/gabriela-santos-b762a9399" target="_blank" 
-                class="btn btn-info mt-2 menu-link flex items-center gap-1 px-2 py-1 text-sm"> LinkedIn
-                <img src="images/icone2_linkedin.png" alt="Link para linkedin">
+
+            <a href="https://www.linkedin.com/in/gabriela-santos-b762a9399" target="_blank" class="btn btn-info mt-2 menu-link">
+            LinkedIn
+                <img src="images/icone2_linkedin.png">
             </a>
-            <a href="https://github.com/GabSantt" target="_blank" 
-                class="btn btn-secondary mt-2 menu-link flex items-center gap-1 px-2 py-1 text-sm"> Github
-                <img src="images/icone2_git.png" alt="Link para o GitHub próprio">
+
+            <a href="https://github.com/GabSantt" target="_blank" class="btn btn-secondary mt-2 menu-link">
+            Github
+                <img src="images/icone2_git.png">
             </a>
         </div>
     </section>
+
+    <!-- BOTÕES ADMIN -->
+    <button onclick="loginAdmin()" class="admin-button">
+    Admin
+    </button>
+
+    <button onclick="sairAdmin()" class="admin-button sair-btn admin-only">
+    Sair do admin
+    </button>
+    </div>
 
     <footer>
         <p>© 2025 Gabriela Fátima Santos — Portfólio</p>
     </footer>
 
-<script>
-    new Glide('.glide', {
-        type: 'carousel',
-        perView: 3,
-        gap: 20,
-        autoplay: 3000,
-        breakpoints: {
-            1024: {
-                perView: 2
-            },
-            768: {
-                perView: 1
-            }
-        }
-    }).mount();
-</script>
-
+    </button>
+    <script src="script.js"></script>
 </body>
 </html>
-
-</body>
-</html>
+ 
